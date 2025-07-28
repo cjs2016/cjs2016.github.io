@@ -157,6 +157,38 @@ input[type="reset"] {
 input[type="reset"]:hover {
     background-color: #5a6268;
 }
+/* 접수하기 버튼 스타일 */
+button[type="submit"] {
+    padding: 15px 30px; /* 상하 15px, 좌우 30px 패딩으로 버튼 크기 조절 */
+    font-size: 1.2em;   /* 글자 크기를 기본의 1.2배로 키움 */
+    background-color: #007bff; /* 파란색 배경 */
+    color: white; /* 흰색 글자 */
+    border: none; /* 테두리 없음 */
+    border-radius: 8px; /* 둥근 모서리 */
+    cursor: pointer; /* 마우스 오버 시 포인터 변경 */
+    transition: background-color 0.3s ease; /* 호버 시 부드러운 전환 효과 */
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3; /* 호버 시 더 어두운 파란색 */
+}
+
+/* 다시쓰기 버튼 스타일 */
+button[type="reset"] {
+    padding: 15px 30px; /* 접수하기 버튼과 동일하게 패딩 적용 */
+    font-size: 1.2em;   /* 글자 크기 동일하게 키움 */
+    background-color: #6c757d; /* 회색 배경 */
+    color: white; /* 흰색 글자 */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 10px; /* 접수하기 버튼과의 간격 */
+}
+
+button[type="reset"]:hover {
+    background-color: #5a6268; /* 호버 시 더 어두운 회색 */
+}
     </style>
 </head>
 <body>
@@ -172,21 +204,22 @@ input[type="reset"]:hover {
         <div class="radio-group">
         <p>지원분야</p>
 
-        <input type="radio" id="pythontmp" value="pythontmp">
+        <input type="radio" name="field" id="pythontmp" value="pythontmp">
         <label for="pythontmp">PYTHON</label>
 
-        <input type="radio" id="bootstraptmp" value="bootstraptmp" >
+        <input type="radio" name="field" id="bootstraptmp" value="bootstraptmp" >
         <label for="bootstraptmp">BOOTSTRAP</label>
 
-        <input type="radio" id="mysqltmp" value="mysqltmp">
+        <input type="radio" name="field" id="mysqltmp" value="mysqltmp">
         <label for="mysqltmp">MYSQL</label>
         </div>
                
        <div>
             <label for="message">메세지: </label><br>
-            <textarea id="message" name="message" rows="5" required></textarea>
+            <textarea id="message" name="message" rows="5"></textarea>
         </div>
-    <input type="submit"><input type="reset">    
+    <button type="submit">접수하기</button> 
+    <button type="reset">다시쓰기</button>
     </fieldset>
   </form>
     
