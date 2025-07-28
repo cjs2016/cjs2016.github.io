@@ -9,8 +9,8 @@ body {
 
 /* 헤더 스타일 */
 header {
-    background-color: #dbebdf;
-    color: rgb(36, 11, 11);
+    background-color: #4cb36f;
+    color: #4c5db3;
     padding: 1rem 0;
     text-align: center;
 }
@@ -32,7 +32,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    color: #b34c90;
     text-decoration: none;
     font-weight: bold;
 }
