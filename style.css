@@ -1,0 +1,112 @@
+/* 기본 스타일 초기화 및 전체 폰트 설정 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* 헤더 스타일 */
+header {
+    background-color: #333;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* 네비게이션 아이템을 가로로 정렬 */
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* 컨테이너 (2단 레이아웃의 부모 요소) */
+.container {
+    display: flex; /* Flexbox 활성화: 자식 요소들을 가로로 정렬 */
+    flex-wrap: wrap; /* 화면이 좁아지면 줄 바꿈 허용 */
+    max-width: 1200px; /* 최대 너비 설정 */
+    margin: 20px auto; /* 중앙 정렬 및 상하 여백 */
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* 왼쪽 섹션 (사이드바) */
+.left-section {
+    flex: 1; /* 남는 공간을 1의 비율로 채움 */
+    min-width: 250px; /* 최소 너비 설정 (이보다 작아지면 줄 바꿈) */
+    background-color: #e9e9e9;
+    padding: 20px;
+    margin-right: 20px; /* 오른쪽 여백 */
+    border-radius: 5px;
+    box-sizing: border-box; /* 패딩이 너비에 포함되도록 설정 */
+}
+
+/* 오른쪽 섹션 (메인 콘텐츠) */
+.right-section {
+    flex: 3; /* 남는 공간을 3의 비율로 채움 (왼쪽보다 3배 넓게) */
+    min-width: 400px; /* 최소 너비 설정 */
+    background-color: #fdfdfd;
+    padding: 20px;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.right-section img {
+    max-width: 100%; /* 이미지 크기가 부모 요소를 넘지 않도록 */
+    height: auto; /* 비율 유지 */
+    display: block; /* 이미지 아래 여백 제거 */
+    margin-bottom: 15px;
+}
+
+/* 푸터 스타일 */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 20px;
+}
+
+/* 미디어 쿼리: 반응형 디자인 (화면이 768px보다 작아질 때) */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* 단을 가로에서 세로로 변경 */
+        padding: 10px;
+        margin: 10px auto;
+    }
+
+    .left-section,
+    .right-section {
+        flex: auto; /* 너비 자동 조절 */
+        width: 100%; /* 너비 100% */
+        margin-right: 0; /* 오른쪽 여백 제거 */
+        margin-bottom: 20px; /* 아래쪽 여백 추가 */
+    }
+
+    .left-section {
+        order: 2; /* 모바일에서 사이드바를 아래로 내립니다. */
+    }
+
+    .right-section {
+        order: 1; /* 모바일에서 메인 콘텐츠를 위로 올립니다. */
+    }
+}
