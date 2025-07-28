@@ -9,8 +9,8 @@ body {
 
 /* 헤더 스타일 */
 header {
-    background-color: #333;
-    color: white;
+    background-color: #dbebdf;
+    color: rgb(36, 11, 11);
     padding: 1rem 0;
     text-align: center;
 }
