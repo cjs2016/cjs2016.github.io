@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to MINE</title>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+            background-color: black;
+            color: white;
+            font-family:'Times New Roman', Times, serif;
+            font-weight: bold;
+        }
+        ul {
+            list-style-type: none;
+        }
+        li:not(:last-child) {
+            margin-bottom: 10px;
+        }
+        
+       #zonesub {
+            position: relative;
+        }
+
+        #zonesub ul {
+            position: absolute;
+            left: 150px; 
+            top: 0;
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+            padding: 10px;
+            white-space: nowrap;
+            z-index: 9999;  
+        }
+
+        #zonesub ul li {
+            display: none; 
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .scroller {
+            overflow-x: auto;           
+            display: flex;
+            scroll-snap-type: x mandatory; 
+            scroll-padding: 8px;
+        }
+        .slide {
+            flex: 0 0 100%;               
+            min-width: 100%;
+            scroll-snap-align: center;    
+            scroll-margin: 16px;
+            min-height: 100%;
+        }
+        #main_content {
+            position: relative;
+            z-index: 1;
+        }
+        video {
+             min-width: 100%;
+             animation: fadeLoop 10s infinite;
+        }
+
+        @keyframes fadeLoop {
+            0% { opacity: 1; }
+            95% { opacity: 1; }
+            100% { opacity: 0.99; }
+        }
+        
+
+    </style>
+</head>
+<body>
+  <div id="menu" style="float: left; width: 150px; border: 1px white solid; position: relative; z-index: 9999; ">
+    <ul>
+        <li id="entry">ENTRY</li>
+        <li id="zonesub">ZONE
+            <ul >
+                <li data-target="s1">WW1</li>
+                <li data-target="s2">AGAPE</li>
+                <li data-target="s3">서브주제</li>
+            </ul>
+        </li>
+        <li>NOTICE</li>
+    </ul>
+  </div>
+  <div id="main_content">
+    <div class="carousel">
+            <div class="slides scroller">
+                <div id="s1" class="slide">
+                    <video autoplay loop muted controls preload="auto">  <source src="sceneone.mp4" type="video/mp4"></video>
+                </div>
+                <div id="s2" class="slide">
+                     <video autoplay loop muted controls preload="auto">  <source src="scenetwo.mp4" type="video/mp4"></video>
+                </div>
+                <div id="s3" class="slide" style="background-color: yellow;">&nbsp;</div>
+            </div>
+    </div>
+  </div>
+  <div id="login_canvas">
+    <canvas id="login"></canvas>
+  </div>
+  <script>
+
+    let zonesub = document.querySelector("#zonesub");
+    let zonesubli = document.querySelectorAll("#zonesub ul li"); 
+    let login_canvas = document.querySelector("#login_canvas");
+    let entry = document.querySelector("#entry");
+   
+
+    window.onload = (function(){
+
+       zonesubli.forEach(item => {item.style.display = "none";}); 
+
+        let isOpen = false; 
+
+        //alternative showoff
+        zonesub.addEventListener("click", function () {
+            isOpen = !isOpen;
+            zonesubli.forEach(sub => {
+                sub.style.display = isOpen ? "block" : "none";
+            });
+        });
+    
+       //scroll slider
+       zonesubli.forEach(item => {
+        item.addEventListener("click", (e) => {
+            e.stopPropagation(); 
+            const targetId = e.target.dataset && e.target.dataset.target;
+            if (!targetId) return;
+            const target = document.getElementById(targetId);
+            if (!target) return;
+            target.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        });
+       });
+
+       login_canvas.style.display = "none";
+       login_canvas_width = window.innerWidth/2;
+       login_canvas_top = window.innerHeight/3;
+
+       entry.addEventListener("click",function(){
+        window.open("#", "popupWindow", `width=${login_canvas_width},height=400,left=${login_canvas_width/2},top=${login_canvas_top}`);
+       })
+
+      
+
+    }());
+
+  </script>             
+</body>
+</html>
