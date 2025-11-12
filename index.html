@@ -6,12 +6,13 @@
     <title>Welcome to MINE</title>
     <style>
         body {
-            margin: 0px;
-            padding: 0px;
+            margin: 0;
+            padding: 0;
             background-color: black;
             color: white;
             font-family:'Times New Roman', Times, serif;
             font-weight: bold;
+            overflow: hidden;
         }
         ul {
             list-style-type: none;
@@ -19,14 +20,46 @@
         li:not(:last-child) {
             margin-bottom: 10px;
         }
+        #main_content {
+            position: relative;
+            margin:0;
+        }
+
+        .carousel {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+
+        #menu {
+            position:absolute;
+            top:0;
+            left:0; 
+            width:fit-content;                     
+            z-index: 9999;
+            padding: 10px;  
+            color: white;    
+            border-radius: 5px;
+        }
         
+
        #zonesub {
             position: relative;
         }
 
         #zonesub ul {
             position: absolute;
-            left: 150px; 
+            left: 80px; 
             top: 0;
             display: flex;
             flex-direction: row;
@@ -46,6 +79,7 @@
             display: flex;
             scroll-snap-type: x mandatory; 
             scroll-padding: 8px;
+            height: 100%;
         }
         .slide {
             flex: 0 0 100%;               
@@ -58,59 +92,57 @@
             position: relative;
             z-index: 1;
         }
-        video {
-             min-width: 100%;
-             animation: fadeLoop 10s infinite;
-        }
-
-        @keyframes fadeLoop {
-            0% { opacity: 1; }
-            95% { opacity: 1; }
-            100% { opacity: 0.99; }
-        }
+       
         
 
     </style>
 </head>
 <body>
-  <div id="menu" style="float: left; width: 150px; border: 1px white solid; position: relative; z-index: 9999; ">
+<div id="main_content">
+  <div id="menu">
     <ul>
         <li id="entry">ENTRY</li>
         <li id="zonesub">ZONE
             <ul >
                 <li data-target="s1">WW1</li>
                 <li data-target="s2">AGAPE</li>
-                <li data-target="s3">서브주제</li>
+                <li data-target="s3">ABYSS</li>
             </ul>
         </li>
         <li>NOTICE</li>
     </ul>
   </div>
-  <div id="main_content">
+
+ 
     <div class="carousel">
             <div class="slides scroller">
                 <div id="s1" class="slide">
-                    <video autoplay loop muted controls preload="auto">  <source src="sceneone.mp4" type="video/mp4"></video>
+                    <video autoplay loop muted controls preload="auto">  <source src="mp4/sceneone.mp4" type="video/mp4"></video>
                 </div>
                 <div id="s2" class="slide">
-                     <video autoplay loop muted controls preload="auto">  <source src="scenetwo.mp4" type="video/mp4"></video>
+                     <video autoplay loop muted controls preload="auto">  <source src="mp4/scenetwo.mp4" type="video/mp4"></video>
                 </div>
-                <div id="s3" class="slide" style="background-color: yellow;">&nbsp;</div>
+                <div id="s3" class="slide">
+                    <video autoplay loop muted controls preload="auto">  <source src="mp4/scenethree.mp4" type="video/mp4"></video>
+                </div>
             </div>
     </div>
-  </div>
+</div>
+
+  
+
   <div id="login_canvas">
     <canvas id="login"></canvas>
   </div>
   <script>
 
     let zonesub = document.querySelector("#zonesub");
-    let zonesubli = document.querySelectorAll("#zonesub ul li"); 
+    let zonesubli = document.querySelectorAll("li#zonesub ul li"); 
     let login_canvas = document.querySelector("#login_canvas");
     let entry = document.querySelector("#entry");
    
 
-    window.onload = (function(){
+    window.onload = function(){
 
        zonesubli.forEach(item => {item.style.display = "none";}); 
 
@@ -124,18 +156,41 @@
             });
         });
     
-       //scroll slider
-       zonesubli.forEach(item => {
-        item.addEventListener("click", (e) => {
-            e.stopPropagation(); 
-            const targetId = e.target.dataset && e.target.dataset.target;
-            if (!targetId) return;
-            const target = document.getElementById(targetId);
-            if (!target) return;
-            target.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-        });
-       });
 
+        let sliderContainer = document.querySelector("div.slides.scroller");
+        let slides = document.querySelectorAll("div.slide");
+
+        let currentIndex = 0;
+        let slider;
+
+        function startSlider() {
+            slider = setInterval(() => {
+                currentIndex = (currentIndex + 1) % slides.length;
+                sliderContainer.scrollTo({
+                    left: slides[currentIndex].offsetLeft,
+                    behavior: "smooth"
+                });
+            }, 8000);
+        }
+
+       
+        startSlider();
+        
+        zonesubli.forEach(item => {
+            item.addEventListener("click", (e) => {
+                e.stopPropagation(); 
+                const targetId = e.target.dataset && e.target.dataset.target;
+                if (!targetId) return;
+                const target = document.getElementById(targetId);
+                if (!target) return;
+
+                target.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                clearInterval(slider);
+            });
+        });
+
+
+       //login
        login_canvas.style.display = "none";
        login_canvas_width = window.innerWidth/2;
        login_canvas_top = window.innerHeight/3;
@@ -144,9 +199,12 @@
         window.open("#", "popupWindow", `width=${login_canvas_width},height=400,left=${login_canvas_width/2},top=${login_canvas_top}`);
        })
 
+       
+       
+
       
 
-    }());
+    }
 
   </script>             
 </body>
