@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Notice - Osprey Delight</title>
+    <link>https://cjs2016.github.io/notice/</link>
+    <description>Recent content on Notice - Osprey Delight</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <atom:link href="https://cjs2016.github.io/notice/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>https://cjs2016.github.io/notice/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://cjs2016.github.io/notice/about/</guid>
+      <description>&lt;p&gt;# 👋 About This Site&lt;/p&gt;&#xA;&lt;p&gt;This is the official **Notice Page** powered by the *Osprey Delight* theme.&lt;/p&gt;&#xA;&lt;p&gt;It serves as a communication hub for sharing information about login guides,&lt;/p&gt;&#xA;&lt;p&gt;events, and coupon management for Bitspace users.&lt;/p&gt;&#xA;&lt;p&gt;## Main Features&lt;/p&gt;&#xA;&lt;p&gt;- Step-by-step **login instructions**&lt;/p&gt;&#xA;&lt;p&gt;- A list of **current and upcoming events**&lt;/p&gt;&#xA;&lt;p&gt;- User **coupon management** and benefits&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Contact</title>
+      <link>https://cjs2016.github.io/notice/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://cjs2016.github.io/notice/contact/</guid>
+      <description>&lt;p&gt;# 📞 Contact Us&lt;/p&gt;&#xA;&lt;p&gt;Do you have any questions or suggestions?&lt;/p&gt;&#xA;&lt;p&gt;Feel free to reach out using the following methods:&lt;/p&gt;&#xA;&lt;p&gt;- 📧 Email: [cjs2016@bitspace.kr](mailto:cjs2016@bitspace.kr)&lt;/p&gt;&#xA;&lt;p&gt;- 💬 GitHub: [https://github.com/cjs2016](&lt;a href=&#34;https://github.com/cjs2016&#34;&gt;https://github.com/cjs2016&lt;/a&gt;)&lt;/p&gt;&#xA;&lt;p&gt;- 🕓 Office Hours: Monday–Friday, 10:00 AM – 6:00 PM (KST, except holidays)&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Notice</title>
+      <link>https://cjs2016.github.io/notice/notice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://cjs2016.github.io/notice/notice/</guid>
+      <description>&lt;p&gt;# 📢 Announcements&lt;/p&gt;&#xA;&lt;p&gt;## 🔐 How to Log In&lt;/p&gt;&#xA;&lt;p&gt;1. Click the **Login** button on the top-right corner.&lt;/p&gt;&#xA;&lt;p&gt;2. Sign in using your email or a linked social account (Google, Kakao, etc).&lt;/p&gt;&#xA;&lt;p&gt;3. After logging in, your personalized dashboard will appear.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;## 🎉 Event List&lt;/p&gt;&#xA;&lt;p&gt;| Event Name | Period | Reward |&lt;/p&gt;&#xA;&lt;p&gt;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;-|&amp;mdash;&amp;mdash;&amp;mdash;|&amp;mdash;&amp;mdash;&amp;mdash;|&lt;/p&gt;&#xA;&lt;p&gt;| New Member Welcome Event | Jan 1, 2025 – Dec 31, 2025 | 1,000 Points on First Login |&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
